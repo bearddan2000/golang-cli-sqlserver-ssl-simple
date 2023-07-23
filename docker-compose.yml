@@ -1,0 +1,14 @@
+version: '3'
+services:
+
+  db:
+    build:
+      context: db
+
+  app:
+    build:
+      context: app
+    volumes:
+      - ./app/log:/tmp/mylog
+    depends_on:
+        - db
